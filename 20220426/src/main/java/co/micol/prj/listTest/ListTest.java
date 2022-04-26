@@ -1,0 +1,45 @@
+package co.micol.prj.listTest;
+
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+import co.micol.prj.dto.StudentVO;
+
+public class ListTest {
+	public void listTest() {
+		List<String> list = new ArrayList<String>();
+		list.add("홍길동");
+		list.add("박기자");
+		list.add("이승리");
+
+		for (String str : list) {
+			System.out.println(str);
+		}
+	}
+
+	public void studentList() {
+		List<StudentVO> students = new ArrayList<StudentVO>();//순차적으로 검색할때 리스트가 제일빠름
+		StudentVO student = new StudentVO(); // 객체를 만들어놓다(제목)
+		student.setStudentId("202204001");
+		student.setName("홍길동");
+		student.setAge(20);
+		student.setBirthDay(Date.valueOf("2002-03-01"));
+		student.setGender("F");
+		students.add(student);
+
+		student = new StudentVO(); // 초기화해서 밑에 새로담는다
+		student.setStudentId("202204002");
+		student.setName("박기자");
+		student.setAge(20);
+		student.setBirthDay(Date.valueOf("2002-04-01"));
+		student.setGender("W");
+		students.add(student);
+
+		for (StudentVO vo : students) {
+			vo.toString();
+			vo.getStudentId(); 
+		}
+	}
+
+}
